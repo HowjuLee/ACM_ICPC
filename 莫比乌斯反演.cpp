@@ -1,15 +1,19 @@
 ///莫比乌斯反演
+const int maxn = 1e6+5;
+int mu[maxn],prime[maxn];
+bool check[maxn];
+
 void Moblus(){  
     memset(check,false,sizeof(check));  
     mu[1] = 1;  
     int tot = 0;  
-    for(int i = 2; i <= MAXN; i++){  
+    for(int i = 2; i <= maxn; i++){  
         if( !check[i] ){  
             prime[tot++] = i;  
             mu[i] = -1;  
         }  
         for(int j = 0; j < tot&&prime[j]*i<maxn; j++){  
-            if(i * prime[j] > MAXN) break;  
+            if(i * prime[j] > maxn) break;  
             check[i * prime[j]] = true;  
             if( i % prime[j] == 0){  
                 mu[i * prime[j]] = 0;  

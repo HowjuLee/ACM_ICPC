@@ -16,3 +16,36 @@ void dfs(int dept,LL ans = 1)
         ans *= pri[dept];  
     }  
 } 
+
+/////////求因子个数剪枝版
+void dfs(int dept,int limit,ll tmp,int num)
+{
+    if(num > n) return;
+    if(num == n && ans > tmp) ans = tmp;
+    for(int i=1;i<=limit;i++)
+    {
+        if(ans / prime[dept] < tmp || num*(i+1) > n) break;
+        tmp *= prime[dept];
+        if(n % (num*(i+1)) == 0)
+            dfs(dept+1,i,tmp,num*(i+1));
+    }
+}
+
+
+/////求小于某个数的最多因子的数剪枝版
+void dfs(int dept,int limit,ULL tmp,int num)
+{
+    if(tmp > n) return;
+    if(num > best)
+    {
+        best = num;
+        ans = tmp;
+    }
+    if(num == best && ans > tmp) ans = tmp;
+    for(int i=1;i<=limit;i++)
+    {
+        double cur = (double)tmp;
+        if(n < cur*p[dept]) break;
+        dfs(dept+1,i,tmp *= p[dept],num*(i+1));
+    }
+}

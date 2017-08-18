@@ -10,7 +10,7 @@
 #include<string>  
   
 using namespace std;  
-  
+
 #define maxn 6005  
   
 int n;  
@@ -64,3 +64,6 @@ int main()
     }  
     return 0;  
 } 
+
+
+

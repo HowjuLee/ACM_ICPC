@@ -9,3 +9,8 @@
 
 
 小结论：n的二进制1的个数的奇偶性和k+(n^k)的二进制的奇偶性一致。
+
+string 和char 数组的转换：
+char a[],b[];
+string s(&a[0],&a[strlen(a)]);
+strncpy(b,tmp.c_str(),tmp.length());
